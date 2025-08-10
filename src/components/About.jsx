@@ -58,7 +58,7 @@ const About = () => {
           concepts into engaging, responsive experiences that users love.
         </p>
 
-        <p className="text-xl font-medium text-blue-300 drop-shadow">
+        <p className="text-xl font-medium text-blue-300 drop-shadow p-6">
           Let’s connect and build something extraordinary.
         </p>
       </GlassCard>
