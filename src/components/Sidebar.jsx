@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { GlassCard } from "./ui/GlassCard";
 
 const sections = ["Hero", "About", "Experience", "Skills", "Work", "Contact"];
 
@@ -9,21 +10,23 @@ const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <nav className="hidden md:flex fixed left-0 top-0 h-full w-24 bg-white/10 backdrop-blur-md border-r border-white/20 text-white flex-col items-center py-10 z-50">
-        {sections.map((section) => (
-          <NavLink
-            key={section}
-            to={`/${section.toLowerCase()}`}
-            className={({ isActive }) =>
-              `my-4 text-sm font-medium transition ${
-                isActive ? "text-blue-400" : "hover:text-blue-300"
-              }`
-            }
-          >
-            {section}
-          </NavLink>
-        ))}
-      </nav>
+      <GlassCard className="hidden md:flex fixed left-0 top-0 h-full w-36 z-50 text-white">
+        <div className="flex flex-col justify-start items-center p-10 space-y-6 w-full">
+          {sections.map((section) => (
+            <NavLink
+              key={section}
+              to={`/${section.toLowerCase()}`}
+              className={({ isActive }) =>
+                `text-sm font-medium transition ${
+                  isActive ? "text-blue-400" : "hover:text-blue-300"
+                }`
+              }
+            >
+              {section}
+            </NavLink>
+          ))}
+        </div>
+      </GlassCard>
 
       {/* Mobile Hamburger */}
       <div className="md:hidden fixed top-4 left-4 z-50">
@@ -49,24 +52,25 @@ const Sidebar = () => {
         </button>
       </div>
 
-      {/* Mobile Drawer */}
       {open && (
-        <div className="md:hidden fixed top-0 left-0 w-3/4 h-full bg-white/10 backdrop-blur-md border-r border-white/20 text-black flex flex-col items-start p-6 z-40">
-          {sections.map((section) => (
-            <NavLink
-              key={section}
-              to={`/${section.toLowerCase()}`}
-              onClick={() => setOpen(false)}
-              className={({ isActive }) =>
-                `mb-4 text-lg font-semibold transition ${
-                  isActive ? "text-blue-400" : "hover:text-blue-300"
-                }`
-              }
-            >
-              {section}
-            </NavLink>
-          ))}
-        </div>
+        <GlassCard className="md:hidden fixed top-0 left-0 w-2/4 h-full z-40 text-white">
+          <div className="flex flex-col justify-start items-start p-16 space-y-6 w-full">
+            {sections.map((section) => (
+              <NavLink
+                key={section}
+                to={`/${section.toLowerCase()}`}
+                onClick={() => setOpen(false)}
+                className={({ isActive }) =>
+                  `text-lg font-semibold transition ${
+                    isActive ? "text-blue-400" : "hover:text-blue-300"
+                  }`
+                }
+              >
+                {section}
+              </NavLink>
+            ))}
+          </div>
+        </GlassCard>
       )}
     </>
   );
