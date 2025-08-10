@@ -9,7 +9,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <nav className="hidden md:flex fixed left-0 top-0 h-full w-24 bg-white/10 backdrop-blur-md border-r border-white/20 text-black flex-col items-center py-10 z-50">
+      <nav className="hidden md:flex fixed left-0 top-0 h-full w-24 bg-white/10 backdrop-blur-md border-r border-white/20 text-white flex-col items-center py-10 z-50">
         {sections.map((section) => (
           <NavLink
             key={section}
