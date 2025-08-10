@@ -1,8 +1,28 @@
+// App.js
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Layout from "./Layout";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import Skills from "./components/Skills";
+import Work from "./components/Work";
+import Contact from "./components/Contact";
+
 function App() {
   return (
-    <>
-      <div className="text-red-500">Hello</div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="/hero" />} />
+          <Route path="hero" element={<Hero />} />
+          <Route path="about" element={<About />} />
+          <Route path="experience" element={<Experience />} />
+          <Route path="skills" element={<Skills />} />
+          <Route path="work" element={<Work />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
