@@ -42,8 +42,8 @@ const About = () => {
           Today, I specialize in{" "}
           <span className="text-purple-400 font-semibold">React</span>,{" "}
           <span className="text-indigo-300 font-semibold">Tailwind CSS</span>,
-          and <span className="text-pink-300 font-semibold">Framer Motion</span>
-          , crafting sleek, animated interfaces that are both intuitive and
+          and <span className="text-pink-300 font-semibold">Motion</span>,
+          crafting sleek, animated interfaces that are both intuitive and
           performance-driven.
         </p>
 
