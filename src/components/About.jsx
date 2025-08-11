@@ -3,7 +3,7 @@ import { GlassCard } from "../components/ui/GlassCard";
 const About = () => {
   return (
     <section className="min-h-screen flex justify-center items-center ">
-      <GlassCard className="max-w-3xl w-full p-6 text-white space-y-8 overflow-y-auto max-h-screen text-center">
+      <GlassCard className="max-w-3xl w-full p-6 text-white space-y-8 overflow-y-auto max-h-screen text-center scrollbar-custom">
         <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight drop-shadow-lg">
           Crafting Interfaces with <br />
           Purpose & Passion
