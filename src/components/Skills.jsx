@@ -1,6 +1,7 @@
 import React from "react";
 import { GlassCard } from "../components/ui/GlassCard";
 import { Icon } from "@iconify/react";
+import { motion } from "motion/react";
 
 const skills = [
   {
@@ -48,7 +49,7 @@ const skills = [
     category: "Design & UI",
     items: [
       { name: "Tailwind CSS", icon: "logos:tailwindcss-icon" },
-      { name: "Motion", icon: "mdi:motion" }, // Updated icon name
+      { name: "Motion", icon: "mdi:motion" },
       { name: "Figma", icon: "logos:figma" },
       { name: "CSS Grid", icon: "mdi:grid-large" },
       { name: "Flexbox", icon: "mdi:view-grid" },
@@ -80,20 +81,35 @@ const Skills = () => {
             </h3>
             <div className="flex flex-wrap justify-center gap-6">
               {group.items.map((item, i) => (
-                <div
+                <motion.div
                   key={i}
-                  className="flex flex-col items-center justify-center space-y-2 text-center"
+                  className="flex flex-col items-center justify-center space-y-2 text-center cursor-pointer"
+                  initial="rest"
+                  whileHover="hover"
+                  whileTap="hover"
                 >
-                  <Icon
-                    icon={item.icon}
-                    width="40"
-                    height="40"
-                    className="mx-auto text-white"
-                  />
-                  <span className="text-sm md:text-base text-gray-200 drop-shadow pb-6">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <Icon
+                      icon={item.icon}
+                      width="40"
+                      height="40"
+                      className="mx-auto text-white"
+                    />
+                  </motion.div>
+                  <motion.span
+                    variants={{
+                      rest: { opacity: 0, y: -10 },
+                      hover: { opacity: 1, y: 0 },
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="text-sm md:text-base text-gray-200 drop-shadow pb-6"
+                  >
                     {item.name}
-                  </span>
-                </div>
+                  </motion.span>
+                </motion.div>
               ))}
             </div>
           </GlassCard>
