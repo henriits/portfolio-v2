@@ -31,33 +31,33 @@ const projects = [
 
 const ProjectCard = ({ project }) => {
   return (
-    <GlassCard className="w-full max-w-full px-4 md:px-8 lg:px-16">
+    <GlassCard className="w-full p-4 md:p-6 text-white space-y-4">
       <img
         src={project.image || "/images/placeholder.png"}
         alt={project.title}
-        className="rounded-lg mb-4 w-full h-40 md:h-48 lg:h-56 object-cover bg-gray-800"
+        className="rounded-lg w-full h-40 md:h-48 object-cover bg-gray-800"
       />
-      <h3 className="text-2xl font-semibold text-white mb-2">
-        {project.title}
-      </h3>
-      <p className="text-gray-300 mb-4 lg:text-lg">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-4">
+      <h3 className="text-xl md:text-2xl font-semibold">{project.title}</h3>
+      <p className="text-sm md:text-base text-gray-300">
+        {project.description}
+      </p>
+      <div className="flex flex-wrap gap-2">
         {project.tech.map((icon, i) => (
           <Icon
             key={i}
             icon={icon}
-            width="28"
-            height="28"
+            width="24"
+            height="24"
             className="text-white"
           />
         ))}
       </div>
-      <div className="flex space-x-6">
+      <div className="flex space-x-6 pt-2">
         <a
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-400 hover:underline text-lg"
+          className="text-blue-400 hover:underline text-sm md:text-lg"
         >
           GitHub
         </a>
@@ -66,7 +66,7 @@ const ProjectCard = ({ project }) => {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-green-400 hover:underline text-lg"
+            className="text-green-400 hover:underline text-sm md:text-lg"
           >
             Live
           </a>
@@ -78,11 +78,11 @@ const ProjectCard = ({ project }) => {
 
 const Work = () => {
   return (
-    <section className="h-screen w-full px-6 py-20">
-      <h2 className="text-4xl font-bold text-white mb-12 text-center">
+    <section className="fixed inset-0 flex flex-col items-center justify-center px-4 py-8 z-30 w-screen h-screen">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center drop-shadow-lg">
         My Work
       </h2>
-      <div className=" space-y-10 overflow-y-auto max-h-[70vh] scrollbar-custom px-2">
+      <div className="w-full max-w-5xl space-y-10 overflow-y-auto max-h-[80vh] scrollbar-custom px-2">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}

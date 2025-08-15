@@ -10,7 +10,7 @@ const Hero = () => {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-12 bg-cover bg-center">
+    <section className="fixed inset-0 flex items-center justify-center px-6 py-12 bg-cover bg-center z-30 w-screen h-screen">
       <GlassCard className="max-w-3xl w-full text-center p-10">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
           Hello, I'm a{" "}

@@ -69,7 +69,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-16">
+    <section className="fixed inset-0 flex flex-col items-center justify-center px-6 py-16 z-30 w-screen h-screen">
       <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg text-center mb-12">
         Skills
       </h2>
