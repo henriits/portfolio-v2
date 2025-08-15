@@ -9,27 +9,8 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Desktop Sidebar */}
-      <GlassCard className="hidden md:flex fixed left-0 top-0 h-full w-36 z-50 text-white">
-        <div className="flex flex-col justify-start items-center p-10 space-y-6 w-full">
-          {sections.map((section) => (
-            <NavLink
-              key={section}
-              to={`/${section.toLowerCase()}`}
-              className={({ isActive }) =>
-                `text-sm font-medium transition ${
-                  isActive ? "text-blue-400" : "hover:text-blue-300"
-                }`
-              }
-            >
-              {section}
-            </NavLink>
-          ))}
-        </div>
-      </GlassCard>
-
-      {/* Mobile Hamburger */}
-      <div className="md:hidden fixed top-4 left-4 z-50">
+      {/* Hamburger for all screen sizes */}
+      <div className="fixed top-4 left-4 z-50">
         <button
           onClick={() => setOpen(!open)}
           className="w-10 h-10 flex flex-col justify-center items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-md"
@@ -52,9 +33,10 @@ const Sidebar = () => {
         </button>
       </div>
 
+      {/* Sidebar Panel */}
       {open && (
-        <GlassCard className="md:hidden fixed top-0 left-0 w-2/4 h-full z-40 text-white">
-          <div className="flex flex-col justify-start items-start p-16 space-y-6 w-full">
+        <GlassCard className="fixed top-0 left-0 w-2/4 md:w-1/4 lg:w-1/5 h-full z-40 text-white">
+          <div className="flex flex-col justify-start items-start p-10 space-y-6 w-full">
             {sections.map((section) => (
               <NavLink
                 key={section}

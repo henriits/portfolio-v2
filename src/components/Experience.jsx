@@ -22,7 +22,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-12">
+    <section className="">
       <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg mb-8 text-center">
         Experience
       </h2>
