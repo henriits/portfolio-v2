@@ -14,7 +14,7 @@ const projects = [
   {
     title: "Discord Bot",
     description: "Custom bot for moderation, music, and automation.",
-    imagage: "",
+    image: "",
     tech: ["logos:nodejs", "logos:javascript"],
     github: "https://example.com",
     live: "https://example.com",
@@ -27,23 +27,53 @@ const projects = [
     github: "https://example.com",
     live: "https://example.com",
   },
-  {
-    title: "Discord Bot",
-    description: "Custom bot for moderation, music, and automation.",
-    imagage: "",
-    tech: ["logos:nodejs", "logos:javascript"],
-    github: "https://example.com",
-    live: "https://example.com",
-  },
-  {
-    title: "Budget Planner",
-    description: "Plan monthly budgets with charts and expense tracking.",
-    image: "",
-    tech: ["logos:vue", "logos:typescript", "logos:vite"],
-    github: "https://example.com",
-    live: "https://example.com",
-  },
+  // Add more projects as needed
 ];
+
+const ProjectCard = ({ project }) => {
+  return (
+    <GlassCard className="p-4 hover:scale-[1.02] transition-transform duration-300">
+      <img
+        src={project.image || "/images/placeholder.png"}
+        alt={project.title}
+        className="rounded-lg mb-4 w-full h-40 object-cover bg-gray-800"
+      />
+      <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
+      <p className="text-gray-300 mb-4">{project.description}</p>
+      <div className="flex space-x-2 mb-4">
+        {project.tech.map((icon, i) => (
+          <Icon
+            key={i}
+            icon={icon}
+            width="24"
+            height="24"
+            className="text-white"
+          />
+        ))}
+      </div>
+      <div className="flex space-x-4">
+        <a
+          href={project.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-400 hover:underline"
+        >
+          GitHub
+        </a>
+        {project.live && (
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-400 hover:underline"
+          >
+            Live
+          </a>
+        )}
+      </div>
+    </GlassCard>
+  );
+};
 
 const Work = () => {
   return (
@@ -53,51 +83,7 @@ const Work = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {projects.map((project, index) => (
-          <GlassCard
-            key={index}
-            className="p-4 hover:scale-[1.02] transition-transform duration-300"
-          >
-            <img
-              src={project.image}
-              alt={project.title}
-              className="rounded-lg mb-4 w-full h-40 object-cover"
-            />
-            <h3 className="text-xl font-semibold text-white mb-2">
-              {project.title}
-            </h3>
-            <p className="text-gray-300 mb-4">{project.description}</p>
-            <div className="flex space-x-2 mb-4">
-              {project.tech.map((icon, i) => (
-                <Icon
-                  key={i}
-                  icon={icon}
-                  width="24"
-                  height="24"
-                  className="text-white"
-                />
-              ))}
-            </div>
-            <div className="flex space-x-4">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-400 hover:underline"
-              >
-                GitHub
-              </a>
-              {project.live && (
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-green-400 hover:underline"
-                >
-                  Live
-                </a>
-              )}
-            </div>
-          </GlassCard>
+          <ProjectCard key={index} project={project} />
         ))}
       </div>
     </section>
