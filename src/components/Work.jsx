@@ -27,16 +27,32 @@ const projects = [
     github: "https://example.com",
     live: "https://example.com",
   },
+  {
+    title: "Budget Planner",
+    description: "Plan monthly budgets with charts and expense tracking.",
+    image: "",
+    tech: ["logos:vue", "logos:typescript", "logos:vite"],
+    github: "https://example.com",
+    live: "https://example.com",
+  },
+  {
+    title: "Budget Planner",
+    description: "Plan monthly budgets with charts and expense tracking.",
+    image: "",
+    tech: ["logos:vue", "logos:typescript", "logos:vite"],
+    github: "https://example.com",
+    live: "https://example.com",
+  },
   // Add more projects as needed
 ];
 
 const ProjectCard = ({ project }) => {
   return (
-    <GlassCard className="p-4 hover:scale-[1.02] transition-transform duration-300">
+    <GlassCard className="p-4 md:p-6 lg:p-8 hover:scale-[1.02] transition-transform duration-300 w-full lg:h-[420px]">
       <img
         src={project.image || "/images/placeholder.png"}
         alt={project.title}
-        className="rounded-lg mb-4 w-full h-40 object-cover bg-gray-800"
+        className="rounded-lg mb-4 w-full h-40 md:h-48 lg:h-56 object-cover bg-gray-800"
       />
       <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
       <p className="text-gray-300 mb-4">{project.description}</p>
@@ -77,11 +93,11 @@ const ProjectCard = ({ project }) => {
 
 const Work = () => {
   return (
-    <section className="h-screen w-full overflow-y-auto px-6 py-20">
+    <section className="h-screen w-full px-6 py-20">
       <h2 className="text-4xl font-bold text-white mb-12 text-center">
         My Work
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="max-w-5xl w-full space-y-10 overflow-y-auto max-h-[70vh] scrollbar-custom px-2 mx-auto">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
