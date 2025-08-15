@@ -10,10 +10,7 @@ import { Vortex } from "./components/ui/Vortex";
 
 function App() {
   return (
-    <Vortex
-      backgroundColor="black"
-      className="flex items-center flex-col justify-center md:px-10 w-full h-full"
-    >
+    <Vortex backgroundColor="black">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
