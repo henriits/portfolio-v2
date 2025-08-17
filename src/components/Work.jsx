@@ -39,7 +39,7 @@ const projects = [
     live: "https://henriits.github.io/budget_planner_vue_ts/",
   },
   {
-    title: "Portfolio with admin panel",
+    title: "Portfolio",
     description:
       "A dynamic developer portfolio built with Next.js 14+, featuring a hidden admin dashboard for content management. This full-stack application allows developers to showcase their work while maintaining full control over their content through secure CRUD operations using Server Actions.",
     image:
@@ -82,7 +82,7 @@ const projects = [
     live: "https://date-counter-pi.vercel.app/",
   },
   {
-    title: "Simple Music Player",
+    title: "Music Player",
     description:
       "A simple audio player built with React and Zustand for state management. This application allows users to play, pause, skip, and manage their favorite songs, providing a smooth and enjoyable audio experience. The project is developed using TypeScript for type safety and better maintainability.",
     image:
@@ -92,7 +92,7 @@ const projects = [
     live: "https://music-player-topaz-five.vercel.app/",
   },
   {
-    title: "Mini Discord Clone",
+    title: "Discord Clone",
     description: "Real-time chat application built with React and WebSockets.",
     image:
       "https://ucarecdn.com/8c43280b-81c0-445c-8fb2-56cc7230be7f/discordclone.png",
@@ -110,10 +110,30 @@ const ProjectCard = ({ project }) => {
         alt={project.title}
         className="rounded-lg w-full h-56 md:h-72 lg:h-80 object-cover bg-gray-800"
       />
-      <h3 className="text-xl md:text-2xl font-semibold">{project.title}</h3>
-      <p className="text-sm md:text-base text-gray-300">
-        {project.description}
-      </p>
+      <h3 className="text-xl md:text-2xl font-semibold">
+        {project.title}{" "}
+        <span className="p-2">
+          {" "}
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline text-sm md:text-lg"
+          >
+            GitHub
+          </a>
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:underline p-2 text-sm md:text-lg"
+            >
+              Live
+            </a>
+          )}
+        </span>
+      </h3>
       <div className="flex flex-wrap gap-2">
         {project.tech.map((icon, i) => (
           <Icon
@@ -125,26 +145,10 @@ const ProjectCard = ({ project }) => {
           />
         ))}
       </div>
-      <div className="flex space-x-6 pt-2">
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-400 hover:underline text-sm md:text-lg"
-        >
-          GitHub
-        </a>
-        {project.live && (
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-green-400 hover:underline text-sm md:text-lg"
-          >
-            Live
-          </a>
-        )}
-      </div>
+
+      <p className="text-sm md:text-base text-gray-300">
+        {project.description}
+      </p>
     </GlassCard>
   );
 };
