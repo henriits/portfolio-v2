@@ -73,7 +73,7 @@ const Skills = () => {
       <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg text-center mb-12">
         Skills
       </h2>
-      <div className="max-w-5xl w-full space-y-10 overflow-y-auto max-h-[70vh] scrollbar-custom px-2">
+      <div className="max-w-6xl w-full flex flex-wrap justify-center gap-8 overflow-y-auto max-h-[70vh] scrollbar-custom px-2">
         {skills.map((group, index) => (
           <GlassCard key={index} className="p-6 text-white space-y-6">
             <h3 className="text-2xl md:text-3xl font-bold text-blue-300 drop-shadow text-center pb-6">
