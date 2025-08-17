@@ -22,31 +22,35 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section className="fixed inset-0 flex flex-col items-center justify-center px-6 py-12 z-30 w-screen h-screen">
-      <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg mb-8 text-center">
-        Experience
-      </h2>
-      <div className="max-w-4xl w-full h-[70vh] overflow-y-auto space-y-8 pr-2 scrollbar-custom">
-        {experiences.map((exp, index) => (
-          <GlassCard key={index} className="p-6 text-white space-y-4">
-            <h3 className="text-2xl md:text-3xl font-bold drop-shadow text-blue-300">
-              {exp.title}
-            </h3>
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow">
-              <strong>Company:</strong>{" "}
-              <span className="text-blue-400 font-semibold">{exp.company}</span>
-            </p>
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow">
-              <strong>Location:</strong> {exp.location}
-            </p>
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow">
-              <strong>Period:</strong> {exp.period}
-            </p>
-            <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow">
-              {exp.description}
-            </p>
-          </GlassCard>
-        ))}
+    <section className="fixed inset-0 flex items-center justify-center px-6 py-12 z-30 w-screen h-screen">
+      <div className="max-w-4xl w-full flex flex-col items-center justify-center space-y-8">
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg text-center">
+          Experience
+        </h2>
+        <div className="w-full max-h-[70vh] overflow-y-auto space-y-8 pr-2 scrollbar-custom">
+          {experiences.map((exp, index) => (
+            <GlassCard key={index} className="p-6 text-white space-y-4">
+              <h3 className="text-2xl md:text-3xl font-bold drop-shadow text-blue-300">
+                {exp.title}
+              </h3>
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow">
+                <strong>Company:</strong>{" "}
+                <span className="text-blue-400 font-semibold">
+                  {exp.company}
+                </span>
+              </p>
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow">
+                <strong>Location:</strong> {exp.location}
+              </p>
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow">
+                <strong>Period:</strong> {exp.period}
+              </p>
+              <p className="text-lg md:text-xl text-gray-200 leading-relaxed drop-shadow">
+                {exp.description}
+              </p>
+            </GlassCard>
+          ))}
+        </div>
       </div>
     </section>
   );
