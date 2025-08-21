@@ -79,7 +79,7 @@ const Skills = () => {
             <h3 className="text-2xl md:text-3xl font-bold text-blue-300 drop-shadow text-center pb-6">
               {group.category}
             </h3>
-            <div className="flex flex-wrap justify-center gap-6">
+            <div className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-3 gap-x-10  justify-items-center">
               {group.items.map((item, i) => (
                 <motion.div
                   key={i}
