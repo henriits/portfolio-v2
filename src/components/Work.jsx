@@ -1,6 +1,7 @@
 import React from "react";
 import { GlassCard } from "../components/ui/GlassCard";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -104,21 +105,42 @@ const projects = [
 
 const ProjectCard = ({ project }) => {
   return (
-    <GlassCard className="w-full sm:w-[300px] md:w-[340px] lg:w-[380px] p-4 md:p-6 text-white space-y-4">
-      <img
-        src={project.image || "/images/placeholder.png"}
-        alt={project.title}
-        className="rounded-lg w-full h-56 md:h-72 lg:h-80 object-cover bg-gray-800"
-      />
-      <h3 className="text-xl md:text-2xl font-semibold">
-        {project.title}{" "}
-        <span className="p-2">
-          {" "}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="w-full sm:w-[300px] md:w-[340px] lg:w-[380px]"
+    >
+      <GlassCard className="p-4 md:p-6 text-white space-y-4 h-full flex flex-col justify-between">
+        <img
+          src={project.image || "/images/placeholder.png"}
+          alt={project.title}
+          className="rounded-lg w-full h-56 md:h-72 lg:h-80 object-cover bg-gray-800"
+        />
+        <h3 className="text-xl md:text-2xl font-semibold text-center">
+          {project.title}
+        </h3>
+        <p className="text-sm md:text-base text-gray-300 text-center">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap justify-center gap-2 pt-2">
+          {project.tech.map((icon, i) => (
+            <Icon
+              key={i}
+              icon={icon}
+              width="24"
+              height="24"
+              className="text-white"
+            />
+          ))}
+        </div>
+        <div className="flex justify-center gap-6 pt-4">
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline text-sm md:text-lg"
+            className="text-blue-400 hover:underline text-sm md:text-base"
           >
             GitHub
           </a>
@@ -127,29 +149,14 @@ const ProjectCard = ({ project }) => {
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-400 hover:underline p-2 text-sm md:text-lg"
+              className="text-green-400 hover:underline text-sm md:text-base"
             >
               Live
             </a>
           )}
-        </span>
-      </h3>
-      <div className="flex flex-wrap gap-2">
-        {project.tech.map((icon, i) => (
-          <Icon
-            key={i}
-            icon={icon}
-            width="24"
-            height="24"
-            className="text-white"
-          />
-        ))}
-      </div>
-
-      <p className="text-sm md:text-base text-gray-300">
-        {project.description}
-      </p>
-    </GlassCard>
+        </div>
+      </GlassCard>
+    </motion.div>
   );
 };
 
