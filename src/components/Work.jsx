@@ -142,7 +142,7 @@ const ProjectCard = ({ project }) => {
           </p>
         </div>
 
-        <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center flex-wrap gap-y-3">
+        <div className="mt-6 flex justify-between items-center flex-wrap gap-y-3">
           <div className="flex flex-wrap gap-4 text-3xl text-white">
             {project.tech.map((key, i) => {
               const src = iconMap[key];
