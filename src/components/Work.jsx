@@ -108,20 +108,18 @@ const ProjectCard = ({ project }) => {
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full sm:w-[300px] md:w-[340px] lg:w-[380px]"
+      className="w-full h-screen flex items-center justify-center"
     >
-      <GlassCard className="p-4 md:p-6 text-white space-y-4 h-full flex flex-col justify-between">
+      <GlassCard className="w-full max-w-3xl p-6 text-white space-y-4 flex flex-col justify-between h-[80vh]">
         <img
           src={project.image || "/images/placeholder.png"}
           alt={project.title}
-          className="rounded-lg w-full h-56 md:h-72 lg:h-80 object-cover bg-gray-800"
+          className="rounded-lg w-full h-64 object-cover bg-gray-800"
         />
-        <h3 className="text-xl md:text-2xl font-semibold text-center">
-          {project.title}
-        </h3>
-        <p className="text-sm md:text-base text-gray-300 text-center">
+        <h3 className="text-2xl font-semibold text-center">{project.title}</h3>
+        <p className="text-base text-gray-300 text-center">
           {project.description}
         </p>
         <div className="flex flex-wrap justify-center gap-2 pt-2">
@@ -140,7 +138,7 @@ const ProjectCard = ({ project }) => {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-400 hover:underline text-sm md:text-base"
+            className="text-blue-400 hover:underline text-base"
           >
             GitHub
           </a>
@@ -149,7 +147,7 @@ const ProjectCard = ({ project }) => {
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-400 hover:underline text-sm md:text-base"
+              className="text-green-400 hover:underline text-base"
             >
               Live
             </a>
@@ -162,11 +160,11 @@ const ProjectCard = ({ project }) => {
 
 const Work = () => {
   return (
-    <section className="fixed inset-0 flex flex-col items-center justify-center px-4 py-8 z-30 w-screen h-screen">
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center drop-shadow-lg">
+    <section className="fixed inset-0 overflow-y-auto scrollbar-custom z-30">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center drop-shadow-lg pt-8">
         My Work
       </h2>
-      <div className="w-full max-w-5xl flex flex-wrap justify-center gap-6 overflow-y-auto max-h-[80vh] scrollbar-custom px-2">
+      <div className="flex flex-col items-center gap-12 px-4 pb-16">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
