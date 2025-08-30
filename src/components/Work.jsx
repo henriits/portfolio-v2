@@ -26,6 +26,8 @@ const iconMap = {
   nodejs:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   css3: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  socketio:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/socketio/socketio-original.svg",
 };
 
 const projects = [
@@ -112,7 +114,7 @@ const projects = [
     description: "Real-time chat application built with React and WebSockets.",
     image:
       "https://ucarecdn.com/8c43280b-81c0-445c-8fb2-56cc7230be7f/discordclone.png",
-    tech: ["react", "javascript", "css3"],
+    tech: ["react", "javascript", "css3", "socketio"],
     github: "https://github.com/henriits/mini-discord-clone",
     live: "",
   },
