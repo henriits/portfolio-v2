@@ -112,7 +112,7 @@ const ProjectCard = ({ project }) => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="w-full h-screen flex items-center justify-center"
     >
-      <GlassCard className="relative w-full max-w-3xl p-6 text-white flex flex-col h-[80vh]">
+      <GlassCard className="relative w-full max-w-3xl p-6 text-white flex flex-col min-h-[500px] lg:min-h-[600px] h-auto">
         <div className="flex-grow space-y-4 overflow-auto pb-24">
           <img
             src={project.image || "/images/placeholder.png"}
@@ -128,9 +128,9 @@ const ProjectCard = ({ project }) => {
         </div>
 
         {/* Bottom-right pinned section with split layout */}
-        <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center">
+        <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center flex-wrap">
           {/* Tech icons on the left */}
-          <div className="flex gap-2">
+          <div className="flex gap-2 pt-2">
             {project.tech.map((icon, i) => (
               <Icon
                 key={i}
@@ -143,7 +143,7 @@ const ProjectCard = ({ project }) => {
           </div>
 
           {/* Links on the right */}
-          <div className="flex gap-4">
+          <div className="flex gap-4 pt-3">
             <a
               href={project.github}
               target="_blank"
