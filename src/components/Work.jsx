@@ -142,7 +142,7 @@ const ProjectCard = ({ project }) => {
           </p>
         </div>
 
-        <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center flex-wrap">
+        <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center flex-wrap gap-y-3">
           <div className="flex flex-wrap gap-4 text-3xl text-white">
             {project.tech.map((key, i) => {
               const src = iconMap[key];
@@ -166,26 +166,28 @@ const ProjectCard = ({ project }) => {
             })}
           </div>
 
-          <div className="flex gap-4 pt-3">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 hover:underline text-base"
-            >
-              <FaGithub size={20} />
-              <span className="sr-only">GitHub</span>
-            </a>
-            {project.live && (
+          <div className="flex flex-wrap gap-x-4 gap-y-3">
+            <div className="flex items-center gap-2 p-2 bg-white/10 rounded-md">
               <a
-                href={project.live}
+                href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-400 hover:underline text-base"
+                className="text-blue-400 hover:underline text-base"
               >
-                <BiLinkExternal size={20} />
-                <span className="sr-only">Live Site</span>
+                <FaGithub size={34} className="text-blue-400" />
               </a>
+            </div>
+            {project.live && (
+              <div className="flex items-center gap-2 p-2 bg-white/10 rounded-md">
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-400 hover:underline text-base"
+                >
+                  <BiLinkExternal size={34} className="text-green-400" />
+                </a>
+              </div>
             )}
           </div>
         </div>
