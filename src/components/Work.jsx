@@ -1,16 +1,41 @@
 import React from "react";
 import { GlassCard } from "../components/ui/GlassCard";
-import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
+import { FaGithub } from "react-icons/fa";
+import { BiLinkExternal } from "react-icons/bi";
+
+const iconMap = {
+  javascript:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  vite: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg",
+  vue: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
+  react:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  nextjs:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+  tailwindcss:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
+  typescript:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  framer:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg",
+  postgresql:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+  express:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  nodejs:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  css3: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+};
 
 const projects = [
   {
     title: "Habit Tracker",
     description:
-      "The Habit Tracker App is a Vue.js application designed to help users track their daily habits. Users can view and manage their habits for specific dates, mark habits as completed, and track their progress over time.",
+      "The Habit Tracker App is a Vue.js application designed to help users track their daily habits.",
     image:
       "https://ucarecdn.com/22212306-252e-46bb-83b0-8bc45d77b69c/habittracker.png",
-    tech: ["logos:javascript", "logos:vite", "logos:vue"],
+    tech: ["javascript", "vite", "vue"],
     github: "https://github.com/henriits/habit_tracker_vue",
     live: "",
   },
@@ -20,39 +45,34 @@ const projects = [
       "A simple bot that congratulates users on completing a sprint.",
     image:
       "https://ucarecdn.com/d5643832-70d0-4f47-a189-b241a9800964/discordBot.png",
-    tech: [
-      "logos:typescript",
-      "logos:postgresql",
-      "logos:express",
-      "logos:nodejs",
-    ],
+    tech: ["typescript", "postgresql", "express", "nodejs"],
     github: "https://github.com/henriits/discordBot",
     live: "",
   },
   {
     title: "Budget Planner",
     description:
-      "This Vue.js application provides a comprehensive financial dashboard that allows users to track their transactions, view balances, and analyze their income and expenses through interactive charts. It features a dark mode toggle and supports multiple currencies.",
+      "This Vue.js application provides a comprehensive financial dashboard with dark mode and multi-currency support.",
     image:
       "https://ucarecdn.com/60f5b7dc-25e6-4730-bccb-55f00de07421/expensetracker.png",
-    tech: ["logos:typescript", "logos:vue"],
+    tech: ["typescript", "vue"],
     github: "https://github.com/henriits/budget_planner_vue_ts",
     live: "https://henriits.github.io/budget_planner_vue_ts/",
   },
   {
     title: "Portfolio",
     description:
-      "A dynamic developer portfolio built with Next.js 14+, featuring a hidden admin dashboard for content management. This full-stack application allows developers to showcase their work while maintaining full control over their content through secure CRUD operations using Server Actions.",
+      "A dynamic developer portfolio built with Next.js 14+, featuring a hidden admin dashboard for content management.",
     image:
       "https://ucarecdn.com/c298718f-369b-426e-af47-cfbdcb828d1e/portfolio.png",
     tech: [
-      "logos:javascript",
-      "logos:react",
-      "logos:nextjs",
-      "logos:tailwindcss",
-      "logos:typescript",
-      "logos:framer",
-      "logos:postgresql",
+      "javascript",
+      "react",
+      "nextjs",
+      "tailwindcss",
+      "typescript",
+      "framer",
+      "postgresql",
     ],
     github: "https://github.com/henriits/developer_portfolio_nextjs",
     live: "https://www.henritsarents.online/",
@@ -60,35 +80,30 @@ const projects = [
   {
     title: "Task Manager",
     description:
-      "Simple application allows users to overview the tasks that are nearby in future, includes calendar view with (day, week, month).",
+      "Simple application with calendar views (day, week, month) to manage upcoming tasks.",
     image:
       "https://ucarecdn.com/a9f16532-0096-45ee-8410-ed083ffb509d/taskmanager.png",
-    tech: [
-      "logos:vite",
-      "logos:react",
-      "logos:typescript",
-      "logos:tailwindcss",
-    ],
+    tech: ["vite", "react", "typescript", "tailwindcss"],
     github: "https://github.com/henriits/task-manager",
     live: "https://henriits.github.io/task-manager/",
   },
   {
     title: "Event Planner",
     description:
-      "This project is a simple event planner application built with React, TypeScript, and Vite. It allows users to input events with start and end dates, view them in a calendar format, and see the time left until the events start.",
+      "A React + TypeScript app to track events and countdowns in a calendar format.",
     image:
       "https://ucarecdn.com/2ea019d1-5e43-4a9f-9680-d3799957157d/eventplanner.png",
-    tech: ["logos:typescript", "logos:react", "logos:tailwindcss"],
+    tech: ["typescript", "react", "tailwindcss"],
     github: "https://github.com/henriits/date_counter",
     live: "https://date-counter-pi.vercel.app/",
   },
   {
     title: "Music Player",
     description:
-      "A simple audio player built with React and Zustand for state management. This application allows users to play, pause, skip, and manage their favorite songs, providing a smooth and enjoyable audio experience. The project is developed using TypeScript for type safety and better maintainability.",
+      "A simple audio player built with React and Zustand, featuring TypeScript for maintainability.",
     image:
       "https://ucarecdn.com/2281a412-40cd-4a79-96f5-2f401285a5ff/musicplayer.png",
-    tech: ["logos:react", "logos:typescript", "logos:css3"],
+    tech: ["react", "typescript", "css3"],
     github: "https://github.com/henriits/music-player",
     live: "https://music-player-topaz-five.vercel.app/",
   },
@@ -97,7 +112,7 @@ const projects = [
     description: "Real-time chat application built with React and WebSockets.",
     image:
       "https://ucarecdn.com/8c43280b-81c0-445c-8fb2-56cc7230be7f/discordclone.png",
-    tech: ["logos:react", "logos:javascript", "logos:css3"],
+    tech: ["react", "javascript", "css3"],
     github: "https://github.com/henriits/mini-discord-clone",
     live: "",
   },
@@ -127,22 +142,30 @@ const ProjectCard = ({ project }) => {
           </p>
         </div>
 
-        {/* Bottom-right pinned section with split layout */}
         <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center flex-wrap">
-          {/* Tech icons on the left */}
-          <div className="flex gap-2 pt-2">
-            {project.tech.map((icon, i) => (
-              <Icon
-                key={i}
-                icon={icon}
-                width="24"
-                height="24"
-                className="text-white"
-              />
-            ))}
+          <div className="flex flex-wrap gap-4 text-3xl text-white">
+            {project.tech.map((key, i) => {
+              const src = iconMap[key];
+              if (!src) return null;
+
+              return (
+                <div
+                  key={i}
+                  title={key}
+                  className="p-2 bg-white/10 rounded-md text-2xl text-white"
+                >
+                  <img
+                    src={src}
+                    alt={key}
+                    width={34}
+                    height={34}
+                    className="text-white"
+                  />
+                </div>
+              );
+            })}
           </div>
 
-          {/* Links on the right */}
           <div className="flex gap-4 pt-3">
             <a
               href={project.github}
@@ -150,7 +173,8 @@ const ProjectCard = ({ project }) => {
               rel="noopener noreferrer"
               className="text-blue-400 hover:underline text-base"
             >
-              GitHub
+              <FaGithub size={20} />
+              <span className="sr-only">GitHub</span>
             </a>
             {project.live && (
               <a
@@ -159,7 +183,8 @@ const ProjectCard = ({ project }) => {
                 rel="noopener noreferrer"
                 className="text-green-400 hover:underline text-base"
               >
-                Live
+                <BiLinkExternal size={20} />
+                <span className="sr-only">Live Site</span>
               </a>
             )}
           </div>
