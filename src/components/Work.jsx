@@ -112,46 +112,57 @@ const ProjectCard = ({ project }) => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="w-full h-screen flex items-center justify-center"
     >
-      <GlassCard className="w-full max-w-3xl p-6 text-white space-y-4 flex flex-col justify-between h-[80vh]">
-        <img
-          src={project.image || "/images/placeholder.png"}
-          alt={project.title}
-          className="rounded-lg w-full h-64 object-cover bg-gray-800"
-        />
-        <h3 className="text-2xl font-semibold text-center">{project.title}</h3>
-        <p className="text-base text-gray-300 text-center">
-          {project.description}
-        </p>
-        <div className="flex flex-wrap justify-center gap-2 pt-2">
-          {project.tech.map((icon, i) => (
-            <Icon
-              key={i}
-              icon={icon}
-              width="24"
-              height="24"
-              className="text-white"
-            />
-          ))}
+      <GlassCard className="relative w-full max-w-3xl p-6 text-white flex flex-col h-[80vh]">
+        <div className="flex-grow space-y-4 overflow-auto pb-24">
+          <img
+            src={project.image || "/images/placeholder.png"}
+            alt={project.title}
+            className="rounded-lg w-full h-64 object-cover bg-gray-800"
+          />
+          <h3 className="text-2xl font-semibold text-center">
+            {project.title}
+          </h3>
+          <p className="text-base text-gray-300 text-left">
+            {project.description}
+          </p>
         </div>
-        <div className="flex justify-center gap-6 pt-4">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-blue-400 hover:underline text-base"
-          >
-            GitHub
-          </a>
-          {project.live && (
+
+        {/* Bottom-right pinned section with split layout */}
+        <div className="absolute bottom-6 right-6 left-6 flex justify-between items-center">
+          {/* Tech icons on the left */}
+          <div className="flex gap-2">
+            {project.tech.map((icon, i) => (
+              <Icon
+                key={i}
+                icon={icon}
+                width="24"
+                height="24"
+                className="text-white"
+              />
+            ))}
+          </div>
+
+          {/* Links on the right */}
+          <div className="flex gap-4">
             <a
-              href={project.live}
+              href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-green-400 hover:underline text-base"
+              className="text-blue-400 hover:underline text-base"
             >
-              Live
+              GitHub
             </a>
-          )}
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-400 hover:underline text-base"
+              >
+                Live
+              </a>
+            )}
+          </div>
         </div>
       </GlassCard>
     </motion.div>
