@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { GlassCard } from "./ui/GlassCard";
+import { motion } from "framer-motion";
 
 const navItems = [
   { label: "Hero", href: "/hero", icon: "mdi:home" },
@@ -29,7 +30,12 @@ const Navigation = () => {
                 }
                 aria-label={label}
               >
-                <Icon icon={icon} width="24" height="24" />
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                >
+                  <Icon icon={icon} width="24" height="24" />
+                </motion.div>
               </NavLink>
             </li>
           ))}
