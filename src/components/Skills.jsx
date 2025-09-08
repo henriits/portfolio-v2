@@ -124,8 +124,8 @@ const SkillGroup = ({ group, delay }) => {
 
 const Skills = () => {
   return (
-    <section className="relative w-full h-full overflow-y-auto scrollbar-custom pt-24 pb-16">
-      <div className="flex flex-col items-center justify-center space-y-24">
+    <section className="relative w-full h-full overflow-y-auto scrollbar-custom ">
+      <div className="flex flex-col items-center justify-center ">
         {skills.map((group, index) => (
           <SkillGroup key={index} group={group} delay={index * 0.2} />
         ))}
