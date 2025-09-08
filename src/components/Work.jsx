@@ -201,9 +201,6 @@ const ProjectCard = ({ project }) => {
 const Work = () => {
   return (
     <section className="fixed inset-0 overflow-y-auto scrollbar-custom z-30">
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 text-center drop-shadow-lg pt-8">
-        My Work
-      </h2>
       <div className="flex flex-col items-center gap-12 px-4 pb-16">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />

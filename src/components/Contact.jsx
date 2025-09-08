@@ -29,9 +29,6 @@ const Contact = () => {
   return (
     <section className="fixed inset-0 flex items-center justify-center px-6 py-12 bg-cover bg-center z-30 w-screen h-screen">
       <div className="flex flex-col items-center w-full max-w-2xl">
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg text-center mb-8">
-          Contact Me
-        </h2>
         <GlassCard className="w-full p-10 text-white space-y-8">
           <div className="flex flex-wrap justify-center gap-8">
             {contacts.map((contact, index) => (

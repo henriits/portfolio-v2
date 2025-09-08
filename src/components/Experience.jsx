@@ -24,9 +24,6 @@ const Experience = () => {
   return (
     <section className="fixed inset-0 flex items-center justify-center px-6 py-12 z-30 w-screen h-screen">
       <div className="max-w-4xl w-full flex flex-col items-center justify-center space-y-8">
-        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white drop-shadow-lg text-center">
-          Experience
-        </h2>
         <div className="w-full max-h-[70vh] overflow-y-auto space-y-8 pr-2 scrollbar-custom">
           {experiences.map((exp, index) => (
             <GlassCard key={index} className="p-6 text-white space-y-4">
