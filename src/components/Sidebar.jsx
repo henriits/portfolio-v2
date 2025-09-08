@@ -1,15 +1,24 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { GlassCard } from "./ui/GlassCard";
+import { Icon } from "@iconify/react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const sections = ["Hero", "About", "Experience", "Skills", "Work", "Contact"];
+const sections = [
+  { name: "Hero", icon: "mdi:home" },
+  { name: "About", icon: "mdi:account" },
+  { name: "Experience", icon: "mdi:briefcase" },
+  { name: "Skills", icon: "mdi:star-circle" },
+  { name: "Work", icon: "mdi:code-tags" },
+  { name: "Contact", icon: "mdi:email" },
+];
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      {/* Hamburger for all screen sizes */}
+      {/* Hamburger */}
       <div className="fixed top-4 left-4 z-50">
         <button
           onClick={() => setOpen(!open)}
@@ -33,27 +42,39 @@ const Sidebar = () => {
         </button>
       </div>
 
-      {/* Sidebar Panel */}
-      {open && (
-        <GlassCard className="fixed top-0 left-0 w-2/4 md:w-1/4 lg:w-1/5 h-full z-40 text-white">
-          <div className="flex flex-col justify-start items-start p-18 space-y-6 w-full">
-            {sections.map((section) => (
-              <NavLink
-                key={section}
-                to={`/${section.toLowerCase()}`}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `text-lg font-semibold transition ${
-                    isActive ? "text-blue-400" : "hover:text-blue-300"
-                  }`
-                }
-              >
-                {section}
-              </NavLink>
-            ))}
-          </div>
-        </GlassCard>
-      )}
+      {/* Sidebar Panel with animation */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -200, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            className="fixed top-0 left-0 w-2/4 md:w-1/4 lg:w-1/5 h-full z-40"
+          >
+            <GlassCard className="h-full text-white">
+              <div className="flex flex-col justify-start items-start px-8 py-16 space-y-6 w-full">
+                {sections.map(({ name, icon }) => (
+                  <NavLink
+                    key={name}
+                    to={`/${name.toLowerCase()}`}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `group flex items-center gap-3 text-lg font-semibold transition-all duration-300 relative ${
+                        isActive ? "text-blue-400" : "hover:text-blue-300"
+                      }`
+                    }
+                  >
+                    <Icon icon={icon} width="24" height="24" />
+                    <span>{name}</span>
+                    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" />
+                  </NavLink>
+                ))}
+              </div>
+            </GlassCard>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

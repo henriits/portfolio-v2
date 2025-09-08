@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
+import Navigation from "./components/Navigation";
 
-const Layout = () => (
-  <div className="flex">
-    <Sidebar />
-    <main className="ml-20 w-full h-screen overflow-hidden">
-      <Outlet />
-    </main>
-  </div>
-);
+const Layout = () => {
+  return (
+    <div className="relative w-full h-screen overflow-hidden">
+      <Navigation />
+      <main className="pt-24 px-4 w-full h-full overflow-y-auto scrollbar-custom">
+        <Outlet />
+      </main>
+    </div>
+  );
+};
 
 export default Layout;
