@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { GlassCard } from "./ui/GlassCard";
 
 const navItems = [
   { label: "Hero", href: "/hero", icon: "mdi:home" },
@@ -10,30 +11,32 @@ const navItems = [
   { label: "Contact", href: "/contact", icon: "mdi:email" },
 ];
 
-const PillNav = () => {
+const Navigation = () => {
   return (
-    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 shadow-lg">
-      <ul className="flex gap-4 items-center justify-center">
-        {navItems.map(({ href, icon, label }) => (
-          <li key={href}>
-            <NavLink
-              to={href}
-              className={({ isActive }) =>
-                `flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
-                  isActive
-                    ? "bg-white text-black"
-                    : "text-white hover:bg-white/20"
-                }`
-              }
-              aria-label={label}
-            >
-              <Icon icon={icon} width="24" height="24" />
-            </NavLink>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+      <GlassCard className="px-6 py-3 rounded-full border border-white/10">
+        <ul className="flex gap-4 items-center justify-center">
+          {navItems.map(({ href, icon, label }) => (
+            <li key={href}>
+              <NavLink
+                to={href}
+                className={({ isActive }) =>
+                  `flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
+                    isActive
+                      ? "bg-white text-black"
+                      : "text-white hover:bg-white/20"
+                  }`
+                }
+                aria-label={label}
+              >
+                <Icon icon={icon} width="24" height="24" />
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </GlassCard>
+    </div>
   );
 };
 
-export default PillNav;
+export default Navigation;
