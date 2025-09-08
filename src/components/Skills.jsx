@@ -68,7 +68,6 @@ const skills = [
   },
 ];
 
-// Component for each animated skill group
 const SkillGroup = ({ group, delay }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -79,8 +78,9 @@ const SkillGroup = ({ group, delay }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay }}
+      className="flex items-center justify-center min-h-screen"
     >
-      <GlassCard className="w-full p-8 text-white space-y-6 shadow-lg">
+      <GlassCard className="w-full max-w-3xl p-8 text-white space-y-6 shadow-lg">
         <h3 className="text-2xl md:text-3xl font-bold text-blue-300 drop-shadow text-center mb-8">
           {group.category}
         </h3>
@@ -122,53 +122,11 @@ const SkillGroup = ({ group, delay }) => {
   );
 };
 
-// Main Skills component
 const Skills = () => {
   return (
-    <section className="fixed inset-0 flex flex-col items-center justify-start px-6 pt-24 pb-16 z-30 w-screen h-screen overflow-y-auto scrollbar-custom">
-      <div className="w-full max-w-5xl space-y-12">
-        {/* First group always visible and centered */}
-        <GlassCard className="w-full p-8 text-white space-y-6 shadow-lg flex flex-col items-center">
-          <h3 className="text-2xl md:text-3xl font-bold text-blue-300 drop-shadow text-center mb-8">
-            {skills[0].category}
-          </h3>
-          <div className="flex flex-wrap justify-center gap-6">
-            {skills[0].items.map((item, i) => (
-              <motion.div
-                key={i}
-                className="flex flex-col items-center space-y-2 text-center cursor-pointer"
-                initial="rest"
-                whileHover="hover"
-                whileTap="hover"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <Icon
-                    icon={item.icon}
-                    width="40"
-                    height="40"
-                    className="text-white"
-                  />
-                </motion.div>
-                <motion.span
-                  variants={{
-                    rest: { opacity: 0, y: -10 },
-                    hover: { opacity: 1, y: 0 },
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="text-sm md:text-base text-gray-200 drop-shadow"
-                >
-                  {item.name}
-                </motion.span>
-              </motion.div>
-            ))}
-          </div>
-        </GlassCard>
-
-        {/* Remaining groups animate on scroll */}
-        {skills.slice(1).map((group, index) => (
+    <section className="relative w-full h-full overflow-y-auto scrollbar-custom pt-24 pb-16">
+      <div className="flex flex-col items-center justify-center space-y-24">
+        {skills.map((group, index) => (
           <SkillGroup key={index} group={group} delay={index * 0.2} />
         ))}
       </div>
