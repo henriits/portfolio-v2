@@ -77,8 +77,8 @@ const SkillGroup = ({ group, delay }) => {
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay }}
-      className="flex items-center justify-center min-h-screen"
+      transition={{ duration: 0.3, delay }}
+      className="flex items-center justify-center min-h-screen snap-start"
     >
       <GlassCard className="w-full max-w-3xl p-8 text-white space-y-6 shadow-lg">
         <h3 className="text-2xl md:text-3xl font-bold text-blue-300 drop-shadow text-center mb-8">
@@ -124,8 +124,8 @@ const SkillGroup = ({ group, delay }) => {
 
 const Skills = () => {
   return (
-    <section className="relative w-full h-full overflow-y-auto scrollbar-custom ">
-      <div className="flex flex-col items-center justify-center ">
+    <section className="relative w-full h-full overflow-y-auto scrollbar-custom snap-y snap-mandatory">
+      <div className="flex flex-col items-center justify-center">
         {skills.map((group, index) => (
           <SkillGroup key={index} group={group} delay={index * 0.2} />
         ))}

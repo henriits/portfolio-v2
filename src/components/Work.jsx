@@ -127,7 +127,7 @@ const ProjectCard = ({ project }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="w-full h-screen flex items-center justify-center"
+      className="w-full h-screen flex items-center justify-center snap-start"
     >
       <GlassCard className="relative w-full max-w-3xl p-6 text-white flex flex-col min-h-[500px] lg:min-h-[600px] h-auto">
         <div className="flex-grow space-y-4 overflow-auto pb-24">
@@ -200,7 +200,7 @@ const ProjectCard = ({ project }) => {
 
 const Work = () => {
   return (
-    <section className="fixed inset-0 overflow-y-auto scrollbar-custom z-30">
+    <section className="fixed inset-0 overflow-y-auto scrollbar-custom z-30 snap-y snap-mandatory">
       <div className="flex flex-col items-center gap-12 px-4 pb-16">
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
