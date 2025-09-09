@@ -1,6 +1,7 @@
 import React from "react";
 import { GlassCard } from "../components/ui/GlassCard";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 const contacts = [
   {
@@ -32,23 +33,38 @@ const Contact = () => {
         <GlassCard className="w-full p-10 text-white space-y-8">
           <div className="flex flex-wrap justify-center gap-8">
             {contacts.map((contact, index) => (
-              <a
+              <motion.a
                 key={index}
                 href={contact.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex flex-col items-center space-y-2 hover:scale-110 transition-transform duration-300"
+                initial="rest"
+                whileHover="hover"
+                whileTap="hover"
+                className="flex flex-col items-center space-y-2 cursor-pointer"
               >
-                <Icon
-                  icon={contact.icon}
-                  width="40"
-                  height="40"
-                  className="text-white"
-                />
-                <span className="text-sm md:text-base text-gray-200 drop-shadow">
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Icon
+                    icon={contact.icon}
+                    width="40"
+                    height="40"
+                    className="text-white"
+                  />
+                </motion.div>
+                <motion.span
+                  variants={{
+                    rest: { opacity: 0, y: -10 },
+                    hover: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="text-sm md:text-base text-gray-200 drop-shadow"
+                >
                   {contact.name}
-                </span>
-              </a>
+                </motion.span>
+              </motion.a>
             ))}
           </div>
         </GlassCard>
