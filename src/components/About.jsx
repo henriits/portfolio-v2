@@ -3,12 +3,15 @@ import { GlassCard } from "../components/ui/GlassCard";
 
 const About = () => {
   return (
-    <section className="fixed inset-0 overflow-y-auto scrollbar-custom  flex items-center justify-center bg-cover bg-center pt-36 ">
-      <div className=" max-w-6xl">
-        <GlassCard className="text-white p-6 ">
+    <section className="fixed inset-0 overflow-y-auto scrollbar-custom bg-cover bg-center flex justify-center">
+      {" "}
+      <div className="max-w-6xl w-full flex justify-center items-center min-h-screen pt-[60vh] md:pt-0 transition-all duration-300">
+        {" "}
+        <GlassCard className="text-white  mx-7 px-2 ">
           <h2 className=" text-blue-300 text-2xl md:text-4xl font-extrabold tracking-tight drop-shadow-lg text-center">
             Crafting Interfaces with Purpose & Passion
           </h2>
+          <br />
           <br />
           <p className="text-base md:text-lg text-gray-200 leading-relaxed drop-shadow ">
             I'm{" "}
@@ -18,10 +21,13 @@ const About = () => {
             <span className="text-blue-400 font-semibold">
               Software Development Academy
             </span>
-            . What began as curiosity quickly evolved into a passion for
-            building digital experiences.
+            .
+            <br />
+            <br />
+            What began as curiosity quickly evolved into a passion for building
+            digital experiences.
           </p>
-
+          <br />
           <p className="text-base md:text-lg text-gray-200 leading-relaxed drop-shadow">
             In <strong>2023</strong>, I enrolled in{" "}
             <span className="text-blue-400 font-semibold">
@@ -38,7 +44,7 @@ const About = () => {
             <span className="font-semibold">databases</span> to build scalable,
             responsive applications.
           </p>
-
+          <br />
           <p className="text-base md:text-lg text-gray-200 leading-relaxed drop-shadow">
             Today, I specialize in{" "}
             <span className="text-purple-400 font-semibold">React</span>,{" "}
@@ -47,18 +53,18 @@ const About = () => {
             crafting sleek, animated interfaces that are both intuitive and
             performance-driven.
           </p>
-
+          <br />
           <p className="text-base md:text-lg text-gray-200 leading-relaxed drop-shadow">
             Beyond the screen, I’m a traveler, photographer, hands-on
             creator—and a gym enthusiast. Whether I’m lifting weights or lifting
             ideas into code, I thrive on progress, creativity, and discipline.
           </p>
-
+          <br />
           <p className="text-base md:text-lg text-gray-200 leading-relaxed drop-shadow">
             I approach development with curiosity and precision, transforming
             concepts into engaging, responsive experiences that users love.
           </p>
-
+          <br />
           <p className="text-lg md:text-xl text-blue-300 font-medium drop-shadow p-4 text-center">
             Let’s connect and build something extraordinary.
           </p>
