@@ -15,8 +15,8 @@ const navItems = [
 const Navigation = () => {
   return (
     <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
-      <GlassCard className="pt-7 pb-2  px-7 rounded-full border border-white/10">
-        <ul className="flex gap-4 items-center justify-center">
+      <GlassCard className="pt-7 pb-2  px-4 rounded-full border border-white/10">
+        <ul className="flex items-center justify-center">
           {navItems.map(({ href, icon, label }) => (
             <motion.li
               key={href}
@@ -54,7 +54,7 @@ const Navigation = () => {
                         hover: { opacity: 1, y: 0 },
                       }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="text-[22px] text-gray-200 mt-px leading-none"
+                      className="text-[20px] text-gray-200 mt-px leading-none"
                     >
                       {label}
                     </motion.span>
