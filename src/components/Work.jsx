@@ -142,52 +142,51 @@ const ProjectCard = ({ project }) => {
           <p className="text-base text-gray-300 text-left">
             {project.description}
           </p>
-        </div>
+          <div className="mt-6 flex justify-between items-center flex-wrap ">
+            <div className="flex flex-wrap gap-4 text-3xl text-white">
+              {project.tech.map((key, i) => {
+                const src = iconMap[key];
+                if (!src) return null;
 
-        <div className="mt-6 flex justify-between items-center flex-wrap gap-y-3">
-          <div className="flex flex-wrap gap-4 text-3xl text-white">
-            {project.tech.map((key, i) => {
-              const src = iconMap[key];
-              if (!src) return null;
-
-              return (
-                <div
-                  key={i}
-                  title={key}
-                  className="p-2 bg-white/10 rounded-md text-2xl text-white"
-                >
-                  <img
-                    src={src}
-                    alt={key}
-                    width={34}
-                    height={34}
-                    className="text-white"
-                  />
-                </div>
-              );
-            })}
+                return (
+                  <div
+                    key={i}
+                    title={key}
+                    className="p-2 bg-white/10 rounded-md text-2xl text-white"
+                  >
+                    <img
+                      src={src}
+                      alt={key}
+                      width={24}
+                      height={24}
+                      className="text-white"
+                    />
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-x-4 gap-y-3">
-            <div className="flex items-center gap-2 p-2 bg-white/10 rounded-md">
+          <div className="absolute bottom-1 right-1 flex gap-4">
+            <div className="flex items-center p-2 bg-white/10 rounded-md">
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:underline text-base"
               >
-                <FaGithub size={34} className="text-blue-400" />
+                <FaGithub size={24} className="text-blue-400" />
               </a>
             </div>
             {project.live && (
-              <div className="flex items-center gap-2 p-2 bg-white/10 rounded-md">
+              <div className="flex items-center p-2 bg-white/10 rounded-md">
                 <a
                   href={project.live}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-green-400 hover:underline text-base"
                 >
-                  <BiLinkExternal size={34} className="text-green-400" />
+                  <BiLinkExternal size={24} className="text-green-400" />
                 </a>
               </div>
             )}
